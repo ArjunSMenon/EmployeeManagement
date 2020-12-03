@@ -1,0 +1,96 @@
+(base) expert@expert-Satellite-L850:~$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 4
+Server version: 5.7.32-0ubuntu0.16.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| Toshiba            |
+| UserDB             |
+| metastore          |
+| mysql              |
+| myusers            |
+| new_pyth           |
+| performance_schema |
+| product            |
+| sqoop_db           |
+| sys                |
+| taskDB             |
+| test1              |
+| toshiba            |
++--------------------+
+14 rows in set (0.00 sec)
+
+mysql> create database employeeDB;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| Toshiba            |
+| UserDB             |
+| employeeDB         |
+| metastore          |
+| mysql              |
+| myusers            |
+| new_pyth           |
+| performance_schema |
+| product            |
+| sqoop_db           |
+| sys                |
+| taskDB             |
+| test1              |
+| toshiba            |
++--------------------+
+15 rows in set (0.00 sec)
+
+mysql> use employeeDB;
+Database changed
+mysql> create table employee(id bigint(20), name varchar(20), department varchar(55));
+Query OK, 0 rows affected (0.51 sec)
+
+mysql> show tables;
++----------------------+
+| Tables_in_employeeDB |
++----------------------+
+| employee             |
++----------------------+
+1 row in set (0.00 sec)
+
+mysql> desc employee;
++------------+-------------+------+-----+---------+-------+
+| Field      | Type        | Null | Key | Default | Extra |
++------------+-------------+------+-----+---------+-------+
+| id         | bigint(20)  | YES  |     | NULL    |       |
+| name       | varchar(20) | YES  |     | NULL    |       |
+| department | varchar(55) | YES  |     | NULL    |       |
++------------+-------------+------+-----+---------+-------+
+3 rows in set (0.01 sec)
+
+mysql> insert into employee values(3, 'Jack', 'Engineering');
+Query OK, 1 row affected (0.10 sec)
+
+mysql> select * from employee;
++------+------+-------------+
+| id   | name | department  |
++------+------+-------------+
+|    3 | Jack | Engineering |
++------+------+-------------+
+1 row in set (0.00 sec)
+
+mysql> 
+
